@@ -20,7 +20,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
-public class TrackserviceTest {
+public class TrackServiceTest {
 
 
 
@@ -32,7 +32,7 @@ public class TrackserviceTest {
 
 
     @InjectMocks
-    private Trackserviceimpl trackService;
+    private TrackServiceimpl trackService;
     List<Track> list= null;
 
 

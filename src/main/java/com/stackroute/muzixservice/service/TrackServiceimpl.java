@@ -9,17 +9,15 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @CacheConfig(cacheNames = {"track"})
 @Service
 @Primary
-public class Trackserviceimpl  implements  Trackservice {
+public class TrackServiceimpl implements TrackService {
 
     private TrackRepository trackRepository;
 
@@ -39,7 +37,9 @@ public class Trackserviceimpl  implements  Trackservice {
     }
 
     @Autowired
-    public  Trackserviceimpl(TrackRepository trackRepository)
+    public
+    TrackServiceimpl(TrackRepository trackRepository)
+
     {
         this.trackRepository=trackRepository;
     }

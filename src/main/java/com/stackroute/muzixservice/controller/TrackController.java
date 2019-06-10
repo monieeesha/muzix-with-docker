@@ -3,7 +3,7 @@ package com.stackroute.muzixservice.controller;
 import com.stackroute.muzixservice.domain.Track;
 import com.stackroute.muzixservice.exceptions.TrackAlreadyExistsExceptions;
 import com.stackroute.muzixservice.exceptions.TrackNotFoundExceptions;
-import com.stackroute.muzixservice.service.Trackservice;
+import com.stackroute.muzixservice.service.TrackService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -22,16 +22,16 @@ import java.util.List;
 public class TrackController {
 
 
+
+    private TrackService trackservice;
+
     @Autowired
-    private Trackservice trackservice;
-
-
-    public TrackController(Trackservice trackservice)
+    public TrackController(TrackService trackservice)
     {
         this.trackservice=trackservice;
     }
 
-    @PostMapping("tracksave")
+    @PostMapping("track")
     public ResponseEntity<?> saveTrack(@RequestBody Track trackInfo)throws TrackAlreadyExistsExceptions
     {
         ResponseEntity responseEntity;
@@ -46,12 +46,11 @@ public class TrackController {
     @GetMapping("track")
     public ResponseEntity<?> getAllTracks()
     {
-          ResponseEntity responseEntity;
+
 
           return new ResponseEntity<List<Track>>(trackservice.getAllTracks(), HttpStatus.OK);
 
     }
-
     @PutMapping("track/{id}/{comment}")
     public ResponseEntity<?> updateTrack(@RequestBody  @PathVariable("id") String id,@PathVariable ("comment") String comment)throws  TrackNotFoundExceptions
     {
@@ -63,7 +62,7 @@ public class TrackController {
             responseEntity=new ResponseEntity<Track>(updatedTrackInfo, HttpStatus.OK);
             return responseEntity;
     }
-    @DeleteMapping("trackdelete/{id}")
+    @DeleteMapping("track/{id}")
     public ResponseEntity<?> deleteTrack(@RequestBody @PathVariable("id") String id)throws TrackNotFoundExceptions
     {
         ResponseEntity responseEntity;

@@ -5,7 +5,7 @@ import com.stackroute.muzixservice.domain.Track;
 import com.stackroute.muzixservice.exceptions.ExceptionController;
 import com.stackroute.muzixservice.exceptions.TrackAlreadyExistsExceptions;
 import com.stackroute.muzixservice.exceptions.TrackNotFoundExceptions;
-import com.stackroute.muzixservice.service.Trackservice;
+import com.stackroute.muzixservice.service.TrackService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,7 +38,7 @@ public class TrackControllerTest
     private MockMvc mockMvc;
     private Track track;
     @MockBean
-    private Trackservice trackservice;
+    private TrackService trackservice;
     @InjectMocks
     private TrackController trackcontroller;
 

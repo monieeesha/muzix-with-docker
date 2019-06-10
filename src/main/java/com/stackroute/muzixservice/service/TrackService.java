@@ -6,7 +6,7 @@ import com.stackroute.muzixservice.exceptions.TrackNotFoundExceptions;
 
 import java.util.List;
 
-public interface Trackservice {
+public interface TrackService {
 
     public Track saveTrack(Track trackInfo)throws TrackAlreadyExistsExceptions;
     public List<Track> getAllTracks();
